@@ -1,7 +1,6 @@
 package kz.pompei.tavreli;
 
 import java.io.InputStream;
-import org.fest.assertions.Assertions;
 import org.testng.annotations.Test;
 
 

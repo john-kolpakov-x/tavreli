@@ -1,3 +1,4 @@
-# tavreli
+# Таврели
 
-Russion chess
+Русские шахматы
+
