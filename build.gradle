@@ -1,0 +1,35 @@
+group 'kz.pompei'
+version '0.0.1'
+
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'idea'
+
+//noinspection GroovyUnusedAssignment
+sourceCompatibility = 1.8
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  compile 'org.easytesting:fest-assert:1.4'
+  testCompile 'org.testng:testng:6.5.1'
+}
+
+test { useTestNG() }
+
+sourceSets.main.java.srcDirs = ["src"]
+sourceSets.test.java.srcDirs = ["test_src"]
+
+sourceSets.main.resources {
+  srcDir "src_res"
+  srcDir "src"
+  exclude "**/*.java"
+}
+
+sourceSets.test.resources {
+  srcDir "test_src_res"
+  srcDir "test_src"
+  exclude "**/*.java"
+}
