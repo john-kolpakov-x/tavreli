@@ -1,10 +1,7 @@
 package kz.pompei.tavreli;
 
-import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
-import java.util.stream.Collectors;
 
 public class Hello {
   public static void main(String[] args) throws Exception {
@@ -12,15 +9,25 @@ public class Hello {
   }
 
   public static String streamToStr(InputStream inputStream) throws Exception {
-    try (BufferedReader br = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8))) {
-      return br.lines().collect(Collectors.joining("\n"));
+    try {
+
+      final byte[] buffer = new byte[1024 * 8];
+      final ByteArrayOutputStream bout = new ByteArrayOutputStream();
+      while (true) {
+        int count = inputStream.read(buffer);
+        if (count < 0) return bout.toString("UTF-8");
+        bout.write(buffer, 0, count);
+      }
+
+    } finally {
+      inputStream.close();
     }
   }
 
   private void run() throws Exception {
     System.out.println("Hello");
-    String content = streamToStr(getClass().getResourceAsStream("/default.resource.txt"));
-    System.out.println(content);
+    String content1 = streamToStr(getClass().getResourceAsStream("/default.resource.txt"));
+    System.out.println(content1);
 
     String content2 = streamToStr(getClass().getResourceAsStream("Hello.txt"));
     System.out.println(content2);
