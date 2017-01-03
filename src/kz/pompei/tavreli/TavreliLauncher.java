@@ -18,5 +18,4 @@ public class TavreliLauncher {
 
     jFrame.setVisible(true);
   }
-
 }
