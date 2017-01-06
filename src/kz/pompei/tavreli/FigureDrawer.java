@@ -66,6 +66,200 @@ public class FigureDrawer {
       case RATNIK:
         drawMainZvanieRATNIK(xc, yc, cellSide);
         break;
+
+      case RATOBOREC:
+        drawMainZvanieRATOBOREC(xc, yc, cellSide);
+        break;
+
+      case VSADNIK:
+        drawMainZvanieVSADNIK(xc, yc, cellSide);
+        break;
+
+      case LUCHNIK:
+        drawMainZvanieLUCHNIK(xc, yc, cellSide);
+        break;
+
+      case KNYAZ:
+        drawMainZvanieKNYAZ(xc, yc, cellSide);
+        break;
+
+      case VOLHV:
+        drawMainZvanieVOLHV(xc, yc, cellSide);
+        break;
+
+      case HEGLI:
+        drawMainZvanieHEGLI(xc, yc, cellSide);
+        break;
+    }
+  }
+
+  private void drawMainZvanieHEGLI(int xc, int yc, int cellSide) {
+    float K = 1.1f;
+
+    int top = Math.round((float) cellSide / 2 * V_top * K);
+    int bottom = Math.round((float) cellSide / 2 * V_bottom);
+
+    int left = Math.round((float) cellSide / 2 * V_width * K);
+    int right = Math.round((float) cellSide / 2 * V_width * K);
+
+    Graphics2D g2 = (Graphics2D) g.create();
+    g2.setColor(foreground);
+    g2.setStroke(new BasicStroke(2f, BasicStroke.CAP_ROUND, BasicStroke.JOIN_MITER,
+      10.0f, null, 0.0f));
+    try {
+
+      int d = 3, u = 10;
+
+      g2.drawLine(xc - left, yc - top - d, xc + right, yc + bottom - d);
+      g2.drawLine(xc - left, yc + bottom - d, xc + right, yc - top - d);
+
+      g2.drawLine(xc - left, yc, xc + right, yc);
+      g2.drawLine(xc, yc - top - d, xc, yc + bottom - d);
+
+      g2.drawLine(xc - left, yc, xc, yc - top - d);
+      g2.drawLine(xc, yc - top - d, xc + right, yc);
+
+      g2.drawLine(xc - left, yc, xc, yc + bottom - d);
+      g2.drawLine(xc, yc + bottom - d, xc + right, yc);
+
+    } finally {
+      g2.dispose();
+    }
+  }
+
+  private void drawMainZvanieVOLHV(int xc, int yc, int cellSide) {
+    float K = 1.1f;
+
+    int top = Math.round((float) cellSide / 2 * V_top * K);
+    int bottom = Math.round((float) cellSide / 2 * V_bottom);
+
+    int left = Math.round((float) cellSide / 2 * V_width * K);
+    int right = Math.round((float) cellSide / 2 * V_width * K);
+
+    Graphics2D g2 = (Graphics2D) g.create();
+    g2.setColor(foreground);
+    g2.setStroke(new BasicStroke(2f, BasicStroke.CAP_ROUND, BasicStroke.JOIN_MITER,
+      10.0f, null, 0.0f));
+    try {
+
+      int d = 3, u = 10;
+
+      g2.drawLine(xc - left, yc - top - d, xc + right, yc + bottom - d);
+      g2.drawLine(xc - left, yc + bottom - d, xc + right, yc - top - d);
+
+      g2.drawLine(xc - left, yc, xc + right, yc);
+      g2.drawLine(xc, yc - top - d, xc, yc + bottom - d);
+
+      int R = Math.round((float) cellSide * V_width / K * 0.4f);
+
+      g2.drawOval(xc - R, yc - R, 2 * R, 2 * R);
+
+    } finally {
+      g2.dispose();
+    }
+  }
+
+  private void drawMainZvanieKNYAZ(int xc, int yc, int cellSide) {
+    int top = Math.round((float) cellSide / 2 * V_top);
+    int bottom = Math.round((float) cellSide / 2 * V_bottom);
+
+    int left = Math.round((float) cellSide / 2 * V_width);
+    int right = Math.round((float) cellSide / 2 * V_width);
+
+    Graphics2D g2 = (Graphics2D) g.create();
+    g2.setColor(foreground);
+    g2.setStroke(new BasicStroke(3f, BasicStroke.CAP_ROUND, BasicStroke.JOIN_MITER,
+      10.0f, null, 0.0f));
+    try {
+
+      int d = 3, u = 10;
+
+      g2.drawLine(xc - left, yc - top - d, xc + right, yc + bottom - d);
+      g2.drawLine(xc - left, yc + bottom - d, xc + right, yc - top - d);
+
+      g2.drawLine(xc - left, yc, xc + right, yc);
+      g2.drawLine(xc, yc - top - d, xc, yc + bottom - d);
+
+    } finally {
+      g2.dispose();
+    }
+  }
+
+  private void drawMainZvanieLUCHNIK(int xc, int yc, int cellSide) {
+    int top = Math.round((float) cellSide / 2 * V_top);
+    int bottom = Math.round((float) cellSide / 2 * V_bottom);
+
+    int left = Math.round((float) cellSide / 2 * V_width);
+    int right = Math.round((float) cellSide / 2 * V_width);
+
+    Graphics2D g2 = (Graphics2D) g.create();
+    g2.setColor(foreground);
+    g2.setStroke(new BasicStroke(3.5f, BasicStroke.CAP_ROUND, BasicStroke.JOIN_MITER, 10.0f,
+      null, 0.0f));
+    try {
+
+      int d = 3, u = 10;
+
+      g2.drawLine(xc - left, yc - top - d, xc + right, yc + bottom - d);
+      g2.drawLine(xc - left, yc + bottom - d, xc + right, yc - top - d);
+
+      g2.drawLine(xc + right, yc - top - d, xc + right - u, yc - top - d);
+      g2.drawLine(xc + right, yc - top - d, xc + right, yc - top - d + u);
+
+    } finally {
+      g2.dispose();
+    }
+  }
+
+  private void drawMainZvanieVSADNIK(int xc, int yc, int cellSide) {
+    int top = Math.round((float) cellSide / 2 * V_top);
+    int bottom = Math.round((float) cellSide / 2 * V_bottom);
+
+    int left = Math.round((float) cellSide / 2 * V_width);
+    int right = Math.round((float) cellSide / 2 * V_width);
+
+    Graphics2D g2 = (Graphics2D) g.create();
+    g2.setColor(foreground);
+    g2.setStroke(new BasicStroke(3.5f, BasicStroke.CAP_ROUND, BasicStroke.JOIN_MITER, 10.0f,
+      null, 0.0f));
+    try {
+
+      int d = 3;
+      int u = 5;
+
+      g2.drawLine(xc - left, yc, xc + right, yc);
+      g2.drawLine(xc - left, yc - u, xc - left, yc + u);
+      g2.drawLine(xc + right, yc - u, xc + right, yc + u);
+
+      g2.drawLine(xc, yc - top - d, xc, yc + bottom - d);
+      g2.drawLine(xc - u, yc - top - d, xc + u, yc - top - d);
+      g2.drawLine(xc - u, yc + bottom - d, xc + u, yc + bottom - d);
+
+    } finally {
+      g2.dispose();
+    }
+  }
+
+  private void drawMainZvanieRATOBOREC(int xc, int yc, int cellSide) {
+    int top = Math.round((float) cellSide / 2 * V_top);
+    int bottom = Math.round((float) cellSide / 2 * V_bottom);
+
+    int left = Math.round((float) cellSide / 2 * V_width);
+    int right = Math.round((float) cellSide / 2 * V_width);
+
+    Graphics2D g2 = (Graphics2D) g.create();
+    g2.setColor(foreground);
+    g2.setStroke(new BasicStroke(3.5f, BasicStroke.CAP_ROUND, BasicStroke.JOIN_MITER, 10.0f,
+      null, 0.0f));
+    try {
+
+      int d = 3;
+
+      g2.drawLine(xc - left, yc, xc + right, yc);
+      g2.drawLine(xc, yc - top - d, xc, yc + bottom - d);
+
+    } finally {
+      g2.dispose();
     }
   }
 

@@ -94,6 +94,9 @@ public class FieldModel {
     put(6, 6, new Fate(false, Post.RATNIK_VSADNIK));
     put(6, 7, new Fate(false, Post.RATNIK_RATOBOREC));
 
+    put(4, 4, new Fate(true, Post.RATNIK_HEGLI).revert());
+    put(4, 5, new Fate(false, Post.RATNIK_HEGLI).revert());
+
   }
 
 }
