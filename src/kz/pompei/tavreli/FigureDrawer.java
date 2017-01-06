@@ -108,7 +108,7 @@ public class FigureDrawer {
       10.0f, null, 0.0f));
     try {
 
-      int d = 3, u = 10;
+      int d = 3;
 
       g2.drawLine(xc - left, yc - top - d, xc + right, yc + bottom - d);
       g2.drawLine(xc - left, yc + bottom - d, xc + right, yc - top - d);
@@ -142,7 +142,7 @@ public class FigureDrawer {
       10.0f, null, 0.0f));
     try {
 
-      int d = 3, u = 10;
+      int d = 3;
 
       g2.drawLine(xc - left, yc - top - d, xc + right, yc + bottom - d);
       g2.drawLine(xc - left, yc + bottom - d, xc + right, yc - top - d);
@@ -172,7 +172,7 @@ public class FigureDrawer {
       10.0f, null, 0.0f));
     try {
 
-      int d = 3, u = 10;
+      int d = 3;
 
       g2.drawLine(xc - left, yc - top - d, xc + right, yc + bottom - d);
       g2.drawLine(xc - left, yc + bottom - d, xc + right, yc - top - d);
