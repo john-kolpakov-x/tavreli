@@ -9,8 +9,8 @@ public class TavreliLauncher {
     JFrame jFrame = new JFrame();
     jFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
-    jFrame.setLocation(4000, 100);
-    jFrame.setSize(800, 700);
+    jFrame.setLocation(1000, 200);
+    jFrame.setSize(900, 700);
 
     jFrame.setTitle("Таврели");
 
