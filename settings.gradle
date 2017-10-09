@@ -1,2 +1,3 @@
 rootProject.name = 'tavreli'
 
+include(":client_x")
