@@ -1,3 +1,4 @@
 rootProject.name = 'tavreli'
 
-include(":client_x")
+//include(":client_x")
+include(":client")

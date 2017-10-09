@@ -1,7 +1,10 @@
-build
-.idea
-.gradle
-out
+/build/
+/client/build/
+/client/node_modules/
+/client_x/build/
+.idea/
+.gradle/
+/out/
 
 *.ipr
 *.iws
