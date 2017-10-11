@@ -1,55 +1,20 @@
 import {Component, OnInit} from "@angular/core";
-import {HttpService} from "./HttpService";
-import {AuthInfo} from "../model/AuthInfo";
 
 @Component({
   selector: 'root-component',
   template: `
-    <login-component
-      *ngIf="mode == 'login'"
-      (finish)="startApp()"
-    ></login-component>
-
-    <main-form-component
-      *ngIf="mode == 'main-form'"
-      (exit)="exit()"
-    ></main-form-component>
-
-    <div *ngIf="mode == 'init'">
-      Инициация системы... <span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>
-    </div>
+    <div class="asd">Привет</div>
+    <svg height="210" width="500">
+      <line x1="0" y1="0" x2="200" y2="200" style="stroke:rgb(255,0,0);stroke-width:2"/>
+      <asd></asd>
+    </svg>
   `
 })
 export class RootComponent implements OnInit {
-  mode: string = "login";
-
-  constructor(private httpService: HttpService) {}
-
   ngOnInit(): void {
-    this.mode = 'init';
-    this.startApp();
+    console.log("Application initiated")
   }
 
-  startApp() {
-    if (!this.httpService.token) {
-      this.mode = 'login';
-      return;
-    }
-
-    this.httpService.get("/auth/info").toPromise().then(result => {
-      let userInfo = result.json() as AuthInfo;
-      if (userInfo.pageSize) this.httpService.pageSize = userInfo.pageSize;
-      (<any>window).document.title = userInfo.appTitle;
-      this.mode = 'main-form';
-    }, error => {
-      console.log(error);
-      this.mode = "login";
-    });
-
-  }
-
-  exit() {
-    this.httpService.token = null;
-    this.mode = 'login';
+  constructor() {
   }
 }
